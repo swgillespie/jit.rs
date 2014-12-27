@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Type` struct in crate `jit`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Type">
+
+    <title>jit::Type - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>jit</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='flags/index.html'>flags</a><a class='mod ' href='kind/index.html'>kind</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.AnyFunction.html'>AnyFunction</a><a class='struct ' href='struct.Builder.html'>Builder</a><a class='struct ' href='struct.CallFlags.html'>CallFlags</a><a class='struct ' href='struct.CompiledFunction.html'>CompiledFunction</a><a class='struct ' href='struct.Context.html'>Context</a><a class='struct ' href='struct.Field.html'>Field</a><a class='struct ' href='struct.Fields.html'>Fields</a><a class='struct ' href='struct.Label.html'>Label</a><a class='struct ' href='struct.Needed.html'>Needed</a><a class='struct ' href='struct.Params.html'>Params</a><a class='struct ' href='struct.ReadElf.html'>ReadElf</a><a class='struct ' href='struct.ReadElfError.html'>ReadElfError</a><a class='struct current' href='struct.Type.html'>Type</a><a class='struct ' href='struct.TypeKind.html'>TypeKind</a><a class='struct ' href='struct.UncompiledFunction.html'>UncompiledFunction</a><a class='struct ' href='struct.Value.html'>Value</a><a class='struct ' href='struct.WriteElf.html'>WriteElf</a></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.ABI.html'>ABI</a><a class='enum ' href='enum.ReadElfErrorCode.html'>ReadElfErrorCode</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Compile.html'>Compile</a><a class='trait ' href='trait.Function.html'>Function</a><a class='trait ' href='trait.NativeRef.html'>NativeRef</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.get.html'>get</a><a class='fn ' href='fn.init.html'>init</a><a class='fn ' href='fn.supports_threads.html'>supports_threads</a><a class='fn ' href='fn.supports_virtual_memory.html'>supports_virtual_memory</a><a class='fn ' href='fn.uses_interpreter.html'>uses_interpreter</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>jit</a>::<wbr><a class='struct' href=''>Type</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-10207' href='../src/jit/types.rs.html#176-179'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Type {
+    // some fields omitted
+}</pre><div class='docblock'><p>An object that represents a native system type.
+Each <code>Type</code> represents a basic system type, be it a primitive, a struct, a
+union, a pointer, or a function signature. The library uses this information
+to lay out values in memory.
+Types are not attached to a context so they are reference-counted by LibJIT,
+so internally they are represented as <code>Rc&lt;TypeData&gt;</code>.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.create_signature' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.create_signature' class='fnname'>create_signature</a>(abi: <a class='enum' href='../jit/enum.ABI.html' title='jit::ABI'>ABI</a>, return_type: <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>, params: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Create a type descriptor for a function signature.</p>
+</div><h4 id='method.create_struct' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.create_struct' class='fnname'>create_struct</a>(fields: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Create a type descriptor for a structure.</p>
+</div><h4 id='method.create_union' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.create_union' class='fnname'>create_union</a>(fields: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Create a type descriptor for a union.</p>
+</div><h4 id='method.create_pointer' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.create_pointer' class='fnname'>create_pointer</a>(pointee: <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Create a type descriptor for a pointer to another type.</p>
+</div><h4 id='method.create_tagged' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.create_tagged' class='fnname'>create_tagged</a>&lt;T: 'static&gt;(ty: <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>, kind: <a class='struct' href='../jit/struct.TypeKind.html' title='jit::TypeKind'>TypeKind</a>, data: <a class='struct' href='http://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Create a new tagged type</p>
+</div><h4 id='method.get_size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_size' class='fnname'>get_size</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.uint.html'>uint</a></code></h4>
+<div class='docblock'><p>Get the size of this type in bytes.</p>
+</div><h4 id='method.get_alignment' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_alignment' class='fnname'>get_alignment</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.uint.html'>uint</a></code></h4>
+<div class='docblock'><p>Get the alignment of this type in bytes.</p>
+</div><h4 id='method.get_kind' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_kind' class='fnname'>get_kind</a>(&amp;self) -&gt; <a class='struct' href='../jit/struct.TypeKind.html' title='jit::TypeKind'>TypeKind</a></code></h4>
+<div class='docblock'><p>Get a value that indicates the kind of this type. This allows callers to
+quickly classify a type to determine how it should be handled further.</p>
+</div><h4 id='method.get_ref' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_ref' class='fnname'>get_ref</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>&gt;</code></h4>
+<div class='docblock'><p>Get the type that is referred to by this pointer type.</p>
+</div><h4 id='method.get_tagged_data' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_tagged_data' class='fnname'>get_tagged_data</a>&lt;T: 'static&gt;(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;T&gt;</code></h4>
+<h4 id='method.set_tagged_data' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_tagged_data' class='fnname'>set_tagged_data</a>&lt;T: 'static&gt;(&amp;self, data: <a class='struct' href='http://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;)</code></h4>
+<h4 id='method.get_return' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_return' class='fnname'>get_return</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>&gt;</code></h4>
+<div class='docblock'><p>Get the type returned by this function type.</p>
+</div><h4 id='method.set_names' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_names' class='fnname'>set_names</a>&lt;T: <a class='trait' href='http://doc.rust-lang.org/nightly/std/c_str/trait.ToCStr.html' title='std::c_str::ToCStr'>ToCStr</a>&gt;(&amp;self, names: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[T]</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Set the field or parameter names of this type.</p>
+</div><h4 id='method.fields' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.fields' class='fnname'>fields</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='struct' href='../jit/struct.Fields.html' title='jit::Fields'>Fields</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Iterator over the type&#39;s fields</p>
+</div><h4 id='method.params' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.params' class='fnname'>params</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='struct' href='../jit/struct.Params.html' title='jit::Params'>Params</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Iterator over the function signature&#39;s parameters</p>
+</div><h4 id='method.find_name' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.find_name' class='fnname'>find_name</a>&lt;'b, T: <a class='trait' href='http://doc.rust-lang.org/nightly/std/c_str/trait.ToCStr.html' title='std::c_str::ToCStr'>ToCStr</a>&gt;(&amp;'b self, name: T) -&gt; <a class='struct' href='../jit/struct.Field.html' title='jit::Field'>Field</a>&lt;'b&gt;</code></h4>
+<div class='docblock'><p>Find the field/parameter index for a particular name.</p>
+</div><h4 id='method.is_pointer' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.is_pointer' class='fnname'>is_pointer</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Check if this is a pointer</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Show.html' title='core::fmt::Show'>Show</a> for <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../jit/trait.NativeRef.html' title='jit::NativeRef'>NativeRef</a> for <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.as_ptr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>unsafe fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class='type' href='../libjit-sys/type.jit_type_t.html' title='libjit-sys::jit_type_t'>jit_type_t</a></code></h4>
+<h4 id='method.from_ptr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>unsafe fn <a href='#method.from_ptr' class='fnname'>from_ptr</a>(ptr: <a class='type' href='../libjit-sys/type.jit_type_t.html' title='libjit-sys::jit_type_t'>jit_type_t</a>) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<h4 id='method.with_ptr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>unsafe fn <a href='#method.with_ptr' class='fnname'>with_ptr</a>&lt;F: <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(*mut <a class='enum' href='http://doc.rust-lang.org/nightly/libc/types/common/c95/enum.c_void.html' title='libc::types::common::c95::c_void'>c_void</a>) -&gt; R, R&gt;(&amp;self, cb: F) -&gt; R</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h4>
+<div class='docblock'><p>Make a copy of the type descriptor by increasing its reference count.</p>
+</div><h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function rarely unused'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Experimental' title='Experimental'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Free a type descriptor by decreasing its reference count.
+This function is safe to use on pre-defined types, which are never
+actually freed.</p>
+</div></div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Unstable' title='Unstable: Definition may change slightly after trait reform'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><a class='stability Unstable' title='Unstable: Definition may change slightly after trait reform'></a><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><a class='stability Unstable' title='Unstable: Definition may change slightly after trait reform'></a><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../jit/struct.Type.html' title='jit::Type'>Type</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "jit";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

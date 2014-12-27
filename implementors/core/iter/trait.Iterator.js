@@ -1,0 +1,10 @@
+(function() {var implementors = {};
+implementors['jit'] = ["<a class='stability Unstable' title='Unstable: just split up for object safety'></a>impl&lt;'a&gt; <a class='trait' href='http://doc.rust-lang.org/nightly/core/iter/trait.Iterator.html' title='core::iter::Iterator'>Iterator</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt; for <a class='struct' href='jit/struct.Needed.html' title='jit::Needed'>Needed</a>&lt;'a&gt;","<a class='stability Unstable' title='Unstable: just split up for object safety'></a>impl&lt;'a&gt; <a class='trait' href='http://doc.rust-lang.org/nightly/core/iter/trait.Iterator.html' title='core::iter::Iterator'>Iterator</a>&lt;<a class='struct' href='jit/struct.Field.html' title='jit::Field'>Field</a>&lt;'a&gt;&gt; for <a class='struct' href='jit/struct.Fields.html' title='jit::Fields'>Fields</a>&lt;'a&gt;","<a class='stability Unstable' title='Unstable: just split up for object safety'></a>impl&lt;'a&gt; <a class='trait' href='http://doc.rust-lang.org/nightly/core/iter/trait.Iterator.html' title='core::iter::Iterator'>Iterator</a>&lt;<a class='struct' href='jit/struct.Type.html' title='jit::Type'>Type</a>&gt; for <a class='struct' href='jit/struct.Params.html' title='jit::Params'>Params</a>&lt;'a&gt;","<a class='stability Unstable' title='Unstable: just split up for object safety'></a>impl&lt;'a&gt; <a class='trait' href='http://doc.rust-lang.org/nightly/core/iter/trait.Iterator.html' title='core::iter::Iterator'>Iterator</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt; for <a class='struct' href='jit/struct.Needed.html' title='jit::Needed'>Needed</a>&lt;'a&gt;",];
+
+            if (window.register_implementors) {
+                window.register_implementors(implementors);
+            } else {
+                window.pending_implementors = implementors;
+            }
+        
+})()
